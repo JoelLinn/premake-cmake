@@ -256,7 +256,7 @@ function m.generate(prj)
 
 			local extentions = iif(cfg.cppdialect:find('^gnu') == nil, 'NO', 'YES')
 			local pic = iif(cfg.pic == 'On', 'True', 'False')
-			local lto = iif(cfg.flags.LinkTimeOptimization, 'True', 'False')
+			local lto = iif(cfg.flags.LinkTimeOptimization or cfg.linktimeoptimization == p.ON, 'True', 'False')
 
 			_p(1, 'set_target_properties("%s" PROPERTIES', prj.name)
 			_p(2, 'CXX_STANDARD %s', standard[cfg.cppdialect])
