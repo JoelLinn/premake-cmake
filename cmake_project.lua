@@ -332,7 +332,7 @@ function m.generate(prj)
 			if #fileconfig.buildcommands == 0 or #fileconfig.buildoutputs == 0 then
 				return
 			end
-			_p(1, 'add_custom_command(TARGET OUTPUT %s', table.implode(project.getrelative(cfg.project, fileconfig.buildoutputs),"",""," "))
+			_p(1, 'add_custom_command(OUTPUT %s', table.implode(project.getrelative(cfg.project, fileconfig.buildoutputs),"",""," "))
 			if fileconfig.buildmessage then
 				_p(2, 'COMMAND %s', os.translateCommandsAndPaths('{ECHO} ' .. fileconfig.buildmessage, cfg.project.basedir, cfg.project.location))
 			end
